@@ -85,7 +85,7 @@ public class DetailsActivity extends AppCompatActivity {
         Intent shareIntent = new Intent(Intent.ACTION_SEND);
         shareIntent.setType("text/plain");
         shareIntent.putExtra(Intent.EXTRA_TEXT, quoteData.getText());
-        startActivity(Intent.createChooser(shareIntent, "Share This!"));
+        startActivity(Intent.createChooser(shareIntent, "Share This Quote :)"));
     }
     private void setUpUI() {
 

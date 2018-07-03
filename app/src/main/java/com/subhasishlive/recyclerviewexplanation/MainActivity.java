@@ -1,6 +1,9 @@
 package com.subhasishlive.recyclerviewexplanation;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -20,6 +23,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import Adapter.MyAdapter;
 import Model.ListItem;
@@ -36,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
     private MyAdapter adapter;
     private List<ListItem> listItems;// listitems are movies...
     private RequestQueue queue;// to use volleys
-
+    public int intValue;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,12 +69,58 @@ public class MainActivity extends AppCompatActivity {
         // listItems is set to the returning value of getMovies(), which is a List<ListItem>
         // so listItems holds all the movies returned by the search parameter.
         listItems = getMovies();
-
+        Intent mIntent = getIntent();
+        intValue = mIntent.getIntExtra("addedRandomNo",0);
         adapter = new MyAdapter(MainActivity.this,listItems);// creating a new adapter for our listItems.
         recyclerView.setAdapter(adapter);//setting our adapter for our recyclerView.
         adapter.notifyDataSetChanged(); // Notify any registered observers that the data set has changed.
     }
+    @Override
+    public void onBackPressed() {
 
+        // We implements here our logic
+        createDialog();
+    }
+    private void createDialog() {
+
+        AlertDialog.Builder alertDlg = new AlertDialog.Builder(this);
+
+
+
+        alertDlg.setMessage("Are you sure you want to exit?");
+
+        alertDlg.setCancelable(false); // We avoid that the dialong can be cancelled, forcing the user to choose one of the options
+
+
+
+        alertDlg.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+
+
+
+                    public void onClick(DialogInterface dialog, int id) {
+
+                        MainActivity.super.onBackPressed();
+
+                    }
+
+                }
+
+        );
+
+        alertDlg.setNegativeButton("No", new DialogInterface.OnClickListener() {
+
+            @Override
+
+            public void onClick(DialogInterface dialog, int which) {
+
+                // We do nothing
+
+            }
+
+        });
+
+        alertDlg.create().show();
+    }
     // creating a method to get movies...
     public List<ListItem> getMovies(){
         listItems.clear(); // first we're clearing the movie list....
@@ -89,7 +139,9 @@ public class MainActivity extends AppCompatActivity {
                     //JSONArray moviesArray = response.getJSONArray("Search");
                     // Now I'm iterating through the array by a for loop
                     // every index-element in that array contains a JSON object.
-                    for(int i=0;i<response.length();i++){
+                    Random randomNumberGenerator = new Random();
+                    int number1 = randomNumberGenerator.nextInt(3);
+                    for(int i=0;i< intValue;i++){
                         // instanciating JSONObject variable to pick a Index item(which is a JSON object) from the JSONArray.
                         //JSONObject movieObj =  moviesArray.getJSONObject(i);
                         ListItem movie = new ListItem();// creating ListItem object.
