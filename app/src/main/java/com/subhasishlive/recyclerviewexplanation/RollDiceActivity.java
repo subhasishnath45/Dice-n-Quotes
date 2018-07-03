@@ -44,7 +44,7 @@ public class RollDiceActivity extends AppCompatActivity {
         noOfQuotes = (TextView) findViewById(R.id.textNoOfQuotes);
         viewQuotesBtn = (Button) findViewById(R.id.viewQuotesBtn);
 
-        viewQuotesBtn.setVisibility(View.GONE);
+        //viewQuotesBtn.setVisibility(View.GONE);
 
         final int[] diceArray = {R.drawable.dice1,
                 R.drawable.dice2,
@@ -68,22 +68,22 @@ public class RollDiceActivity extends AppCompatActivity {
                 addedRandomNo = number1 + number2 + 2;
                 noOfQuotes.setText("You can see " + addedRandomNo + " quotes.");
 
-                if(addedRandomNo > 1){
-                    viewQuotesBtn.setVisibility(View.VISIBLE);
-                }
+//                if(addedRandomNo > 1){
+//                    viewQuotesBtn.setVisibility(View.VISIBLE);
+//                }
 
             }
         });
-        viewQuotesBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // created explicit intent
-                Intent intent = new Intent(RollDiceActivity.this,MainActivity.class);
-                intent.putExtra("addedRandomNo", addedRandomNo);
-                startActivity(intent);
-                RollDiceActivity.this.finish();
-            }
-        });
+//        viewQuotesBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                // created explicit intent
+//                Intent intent = new Intent(RollDiceActivity.this,MainActivity.class);
+//                intent.putExtra("addedRandomNo", addedRandomNo);
+//                startActivity(intent);
+//                RollDiceActivity.this.finish();
+//            }
+//        });
 
         String imageUri = "http://subhasishlive.com/wp-content/uploads/2018/07/ic_splashlogo.png";
         ImageView logoDC = (ImageView) findViewById(R.id.image_logo);

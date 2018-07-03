@@ -65,7 +65,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:background="@color/colorBluebtn"
+        android:background="@drawable/bg_btn_roll"
         android:text="@string/btn_txt_01"
         android:fontFamily="sans-serif-thin"
         android:textAllCaps="false"
@@ -79,48 +79,34 @@
 
     <TextView
         android:id="@+id/textNoOfQuotes"
-        android:layout_width="0dp"
+        android:layout_width="214dp"
         android:layout_height="wrap_content"
 
-        android:layout_marginBottom="20dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="32dp"
         android:text="@string/noQuotes"
         android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/viewQuotesBtn"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_leftlogo"
-        app:layout_constraintStart_toStartOf="@+id/guideline_rightlogo"
-        app:layout_constraintTop_toBottomOf="@+id/rollBtn"
-        app:layout_constraintVertical_bias="0.923" />
-
-    <Button
-        android:id="@+id/viewQuotesBtn"
-        android:layout_width="352dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:background="@color/colorBluebtn"
-        android:text="@string/ViewQuotes"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rollBtn" />
 
-    <android.support.constraint.Guideline
-        android:id="@+id/guideline_rightlogo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="45dp" />
 
-    <android.support.constraint.Guideline
-        android:id="@+id/guideline_leftlogo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_end="45dp" />
+    <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:fitsSystemWindows="false"
+        android:layout_height="match_parent">
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="20dp"
+            android:src="@android:drawable/ic_dialog_email" />
+    </android.support.design.widget.CoordinatorLayout>
 
 
 </android.support.constraint.ConstraintLayout>
