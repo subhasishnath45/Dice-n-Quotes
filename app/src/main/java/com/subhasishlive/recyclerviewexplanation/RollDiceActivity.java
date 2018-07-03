@@ -3,17 +3,23 @@ package com.subhasishlive.recyclerviewexplanation;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.provider.Settings;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Layout;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
 
 import java.util.Random;
 
@@ -78,6 +84,12 @@ public class RollDiceActivity extends AppCompatActivity {
                 RollDiceActivity.this.finish();
             }
         });
+
+        String imageUri = "http://subhasishlive.com/wp-content/uploads/2018/07/ic_splashlogo.png";
+        ImageView logoDC = (ImageView) findViewById(R.id.image_logo);
+        Picasso.with(this).load(imageUri).into(logoDC);
+
+
 
 
     }

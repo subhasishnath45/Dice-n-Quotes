@@ -6,4 +6,6 @@
     <color name="colorBluebtn">#1976D2</color>
     <color name="white">#ffffff</color>
     <color name="background_material_light">#dff2fe</color>
+    <color name="splashBG">#b3e5fc</color>
+    <color name="rolldiceBG">#80d8ff</color>
 </resources>
