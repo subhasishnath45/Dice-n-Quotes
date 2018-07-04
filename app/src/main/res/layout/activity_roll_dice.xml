@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:fitsSystemWindows="false"
+    android:layout_height="match_parent">
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -76,37 +82,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/image_leftdice" />
 
-
-    <TextView
-        android:id="@+id/textNoOfQuotes"
-        android:layout_width="214dp"
-        android:layout_height="wrap_content"
-
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
-        android:text="@string/noQuotes"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rollBtn" />
-
-
-    <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:fitsSystemWindows="false"
-        android:layout_height="match_parent">
-
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-            android:layout_margin="20dp"
-            android:src="@android:drawable/ic_dialog_email" />
-    </android.support.design.widget.CoordinatorLayout>
-
-
 </android.support.constraint.ConstraintLayout>
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fabgo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="20dp"
+        android:theme="@style/GoFloatingButton"
+        app:rippleColor="@color/creamDeep"
+        android:src="@drawable/goicon" />
+</android.support.design.widget.CoordinatorLayout>

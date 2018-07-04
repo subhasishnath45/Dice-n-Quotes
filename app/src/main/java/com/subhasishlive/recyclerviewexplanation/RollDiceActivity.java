@@ -8,6 +8,8 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.provider.Settings;
 import android.support.constraint.ConstraintLayout;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -27,8 +29,9 @@ public class RollDiceActivity extends AppCompatActivity {
     private Button rollBtn;
     private ImageView leftDice;
     private ImageView rightDice;
-    private TextView noOfQuotes;
+    //private TextView noOfQuotes;
     private Button viewQuotesBtn;
+    private FloatingActionButton myFab;
     public int addedRandomNo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,10 +44,10 @@ public class RollDiceActivity extends AppCompatActivity {
         rollBtn = (Button) findViewById(R.id.rollBtn);
         leftDice = (ImageView) findViewById(R.id.image_leftdice);
         rightDice = (ImageView) findViewById(R.id.image_rightdice);
-        noOfQuotes = (TextView) findViewById(R.id.textNoOfQuotes);
-        viewQuotesBtn = (Button) findViewById(R.id.viewQuotesBtn);
-
-        //viewQuotesBtn.setVisibility(View.GONE);
+        //noOfQuotes = (TextView) findViewById(R.id.textNoOfQuotes);
+        //viewQuotesBtn = (Button) findViewById(R.id.viewQuotesBtn);
+        myFab = (FloatingActionButton)  findViewById(R.id.fabgo);
+        myFab.setVisibility(View.GONE);
 
         final int[] diceArray = {R.drawable.dice1,
                 R.drawable.dice2,
@@ -66,24 +69,24 @@ public class RollDiceActivity extends AppCompatActivity {
                 leftDice.setImageResource(diceArray[number1]);
                 rightDice.setImageResource(diceArray[number2]);
                 addedRandomNo = number1 + number2 + 2;
-                noOfQuotes.setText("You can see " + addedRandomNo + " quotes.");
+                Snackbar.make(v,"You can see " + addedRandomNo + " quotes.",Snackbar.LENGTH_SHORT).setAction("Action",null).show();
+                //noOfQuotes.setText("You can see " + addedRandomNo + " quotes.");
 
-//                if(addedRandomNo > 1){
-//                    viewQuotesBtn.setVisibility(View.VISIBLE);
-//                }
+                if(addedRandomNo > 1){
+                    myFab.setVisibility(View.VISIBLE);
+                }
 
             }
         });
-//        viewQuotesBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                // created explicit intent
-//                Intent intent = new Intent(RollDiceActivity.this,MainActivity.class);
-//                intent.putExtra("addedRandomNo", addedRandomNo);
-//                startActivity(intent);
-//                RollDiceActivity.this.finish();
-//            }
-//        });
+
+        myFab.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(RollDiceActivity.this,MainActivity.class);
+                intent.putExtra("addedRandomNo", addedRandomNo);
+                startActivity(intent);
+                RollDiceActivity.this.finish();
+            }
+        });
 
         String imageUri = "http://subhasishlive.com/wp-content/uploads/2018/07/ic_splashlogo.png";
         ImageView logoDC = (ImageView) findViewById(R.id.image_logo);

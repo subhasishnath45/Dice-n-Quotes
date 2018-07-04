@@ -8,4 +8,8 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="GoFloatingButton" parent="Theme.AppCompat.Light">
+        <item name="colorAccent">@color/cream</item>
+    </style>
+
 </resources>

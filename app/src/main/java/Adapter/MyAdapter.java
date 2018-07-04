@@ -64,7 +64,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         holder.year.setText("Tap to know more...");
 
         // using picasso image loading library to load images efficiently.
-        Picasso.with(context).load(posterLink).placeholder(android.R.drawable.ic_btn_speak_now).into(holder.poster);
+        Picasso.with(context).load(posterLink).placeholder(R.drawable.demoimg).into(holder.poster);
 
     }
 

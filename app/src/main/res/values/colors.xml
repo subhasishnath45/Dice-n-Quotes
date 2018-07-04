@@ -8,4 +8,6 @@
     <color name="background_material_light">#dff2fe</color>
     <color name="splashBG">#b3e5fc</color>
     <color name="rolldiceBG">#80d8ff</color>
+    <color name="cream">#f44336</color>
+    <color name="creamDeep">#ef5350</color>
 </resources>
