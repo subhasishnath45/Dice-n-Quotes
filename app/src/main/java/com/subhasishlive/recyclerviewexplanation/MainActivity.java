@@ -126,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
         listItems.clear(); // first we're clearing the movie list....
 
 
-        JsonArrayRequest getRequest = new JsonArrayRequest(Request.Method.GET, Constants.base_url + "wp/v2/AllQuotes",new Response.Listener<JSONArray>() {
+        JsonArrayRequest getRequest = new JsonArrayRequest(Request.Method.GET, Constants.base_url + "wp/v2/AllQuotes?_embed&per_page=100",new Response.Listener<JSONArray>() {
 
             @Override
             public void onResponse(JSONArray response) {
@@ -140,8 +140,9 @@ public class MainActivity extends AppCompatActivity {
                     // Now I'm iterating through the array by a for loop
                     // every index-element in that array contains a JSON object.
                     Random randomNumberGenerator = new Random();
-                    int number1 = randomNumberGenerator.nextInt(3);
-                    for(int i=0;i< intValue;i++){
+                    // This gives a random integer between 2 (inclusive) and 88 (exclusive), one of 65,66,...,78,79
+                    int number1 = randomNumberGenerator.nextInt(22 - 2) + 2;
+                    for(int i=number1 - 2;i< number1 + intValue;i++){
                         // instanciating JSONObject variable to pick a Index item(which is a JSON object) from the JSONArray.
                         //JSONObject movieObj =  moviesArray.getJSONObject(i);
                         ListItem movie = new ListItem();// creating ListItem object.
