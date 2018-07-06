@@ -3,4 +3,8 @@
     <string name="btn_txt_01">Roll the Dices</string>
     <string name="noQuotes">No Quotes yet</string>
     <string name="ViewQuotes">View Your Quotes</string>
+
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+
 </resources>

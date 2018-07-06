@@ -13,6 +13,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Html;
 import android.text.Layout;
 import android.util.Log;
 import android.view.View;
@@ -69,7 +70,7 @@ public class RollDiceActivity extends AppCompatActivity {
                 leftDice.setImageResource(diceArray[number1]);
                 rightDice.setImageResource(diceArray[number2]);
                 addedRandomNo = number1 + number2 + 2;
-                Snackbar.make(v,"You can see " + addedRandomNo + " quotes.",Snackbar.LENGTH_SHORT).setAction("Action",null).show();
+                Snackbar.make(v, Html.fromHtml("You can see " + "<font color=\"#ef5350\">"+ addedRandomNo  + " quotes."+"</font>"),Snackbar.LENGTH_SHORT).setAction("Action",null).show();
                 //noOfQuotes.setText("You can see " + addedRandomNo + " quotes.");
 
                 if(addedRandomNo > 1){

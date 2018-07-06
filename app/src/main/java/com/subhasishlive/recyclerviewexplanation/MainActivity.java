@@ -2,12 +2,24 @@ package com.subhasishlive.recyclerviewexplanation;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -16,6 +28,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -34,18 +47,41 @@ import Util.Prefs;
  * Created by SubhasishNath on 6/11/2018.
  */
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private static final String TAG = "getting length" ;
     private RecyclerView recyclerView;
     private MyAdapter adapter;
     private List<ListItem> listItems;// listitems are movies...
     private RequestQueue queue;// to use volleys
+    private DrawerLayout mDrawerlayout;
     public int intValue;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.onlytoolbar);
+        setSupportActionBar(toolbar);
+
+        mDrawerlayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
+        // instantiating new drawerToggle
+        ActionBarDrawerToggle drawerToggle = new ActionBarDrawerToggle(this,mDrawerlayout,toolbar,R.string.drawer_open,R.string.drawer_close);
+        mDrawerlayout.addDrawerListener(drawerToggle);
+        drawerToggle.syncState();
+        drawerToggle.getDrawerArrowDrawable().setColor(getResources().getColor(R.color.white));
+
+        View hView =  navigationView.getHeaderView(0);
+
+        String imageUri = "http://subhasishlive.com/wp-content/uploads/2018/07/profileApp.png";
+        ImageView devImg = (ImageView) hView.findViewById(R.id.imageViewDev);
+        Picasso.with(this).load(imageUri).into(devImg);
+        CardView cardView = (CardView) findViewById(R.id.cardviewWrapper);
+        //cardView.setCardElevation(0);
+        //cardView.setPreventCornerOverlap(false); //it is very important
         // we are adding our queue and passing our current context....
             queue = Volley.newRequestQueue(MainActivity.this);
 
@@ -132,7 +168,7 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(JSONArray response) {
                 // TODO:response holds the whole JSON object from the URL
                 try{
-                    Log.d(TAG, response.toString() + "Size: "+response.length());
+                    //Log.d(TAG, response.toString() + "Size: "+response.length());
                     // instantiated a new JSON array.
                     // Pass the name of the JSON array as parameter.
                     // Search is name of the JSON array from the JSON file
@@ -141,12 +177,12 @@ public class MainActivity extends AppCompatActivity {
                     // every index-element in that array contains a JSON object.
                     Random randomNumberGenerator = new Random();
                     // This gives a random integer between 2 (inclusive) and 88 (exclusive), one of 65,66,...,78,79
-                    int number1 = randomNumberGenerator.nextInt(22 - 2) + 2;
-                    for(int i=number1 - 2;i< number1 + intValue;i++){
+                    int number1 = randomNumberGenerator.nextInt(23);// 0 to 22 any no will generate
+                    for(int i=number1;i< number1 + intValue;i++){
                         // instanciating JSONObject variable to pick a Index item(which is a JSON object) from the JSONArray.
                         //JSONObject movieObj =  moviesArray.getJSONObject(i);
                         ListItem movie = new ListItem();// creating ListItem object.
-                        Log.d(TAG,"Object at " + i+ response.get(i));
+                        //Log.d(TAG,"Object at " + i+ response.get(i));
                         // getting the JSONObject at i-th position of the JSONArray
                         JSONObject obj = response.getJSONObject(i);
                         // fetching id of each JSONObject from JSONArray.
@@ -193,5 +229,31 @@ public class MainActivity extends AppCompatActivity {
         queue.add(getRequest);
         return listItems;
 
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+        // Handle navigation view item clicks here.
+        switch (item.getItemId()) {
+
+            case R.id.website: {
+                //do somthing
+                Uri uri = Uri.parse( "http://subhasishlive.com" );
+                startActivity( new Intent( Intent.ACTION_VIEW, uri ) );
+                break;
+            }
+            case R.id.blog: {
+                //do somthing
+                Uri uri = Uri.parse( "http://subhasishlive.com/blog" );
+                startActivity( new Intent( Intent.ACTION_VIEW, uri ) );
+                break;
+            }
+        }
+        //close navigation drawer
+        hideDrawer();
+        return true;
+    }
+    private void hideDrawer(){
+        mDrawerlayout.closeDrawer(GravityCompat.START);
     }
 }

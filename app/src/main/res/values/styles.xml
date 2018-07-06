@@ -11,5 +11,12 @@
     <style name="GoFloatingButton" parent="Theme.AppCompat.Light">
         <item name="colorAccent">@color/cream</item>
     </style>
+    <style name="popUpTheme">
+        <item name="android:textColor">@color/actionbarbgcolor</item>
+    </style>
+    <style name="DrawerIcon" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="color">@color/color_icon</item>
+    </style>
 
+    <color name="color_icon">#bbdefb</color>
 </resources>

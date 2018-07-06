@@ -1,4 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:id="@+id/group_drawermenu1"
+        android:checkableBehavior="single">
+        <item android:id="@+id/website"
+            android:icon="@drawable/ic_globe"
+            android:title="subhasishlive.com">
+
+        </item>
+    </group>
+    <group android:id="@+id/group_drawermenu2"
+        android:checkableBehavior="single">
+        <item android:id="@+id/blog"
+            android:icon="@drawable/ic_blogicon"
+            android:title="subhasishlive.com/blog">
+
+        </item>
+    </group>
 
 </menu>
