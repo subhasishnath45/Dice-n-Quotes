@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <android.support.v4.widget.NestedScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:fillViewport="true">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:paddingTop="40dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="20dp">
+    <TextView
+        android:id="@+id/disclaimerheading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="128dp"
+        android:fontFamily="@font/ibmplexserif_regular"
+        android:paddingLeft="20dp"
+        android:text="Read Carefully :)"
+        android:textColor="#1565c0"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/disclaimertxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:padding="20dp"
+        android:textSize="26sp"
+        android:textColor="#1565c0"
+        android:fontFamily="@font/ibmplexserif_regular"
+        android:text=" The images used in this are taken from free websites, friends and users. and are believed to be in the “public domain“. We only collect them, remix them and put them in here. If you are the rightfull owner of any material and want it removed please email us on subhasishnath45@gmail.com and we will remove it immediately on demand. Please Contact us, if you feel that this app is violating your copyright."
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/disclaimerheading"
+        app:layout_constraintVertical_bias="0.0" />
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+</android.support.constraint.ConstraintLayout>

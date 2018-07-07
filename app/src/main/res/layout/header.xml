@@ -17,7 +17,7 @@
             android:layout_height="80dp"
             card_view:cardElevation="0dp"
             android:id="@+id/cardviewWrapper"
-            app:cardBackgroundColor="@android:color/transparent"
+            app:cardBackgroundColor="#2196f3"
             app:cardCornerRadius="50dp"
             android:layout_centerHorizontal="true">
             <ImageView

@@ -80,7 +80,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/quote_by"
+                android:fontFamily="@font/ibmplexserif_regular"
                 android:textSize="16sp"
+                android:textColor="#64b5f6"
                 android:text=""/>
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>

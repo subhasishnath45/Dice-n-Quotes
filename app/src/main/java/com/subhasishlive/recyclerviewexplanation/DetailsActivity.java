@@ -145,7 +145,7 @@ public class DetailsActivity extends AppCompatActivity {
                         JSONObject detailsContentObj = response.getJSONObject("content");
                         String quoteDetailsString = detailsContentObj.getString("rendered");
                         String quoteDetailsStringTagExcluded = quoteDetailsString.replaceAll("\\<.*?\\>", "");
-                        quoteData.setText("" + quoteDetailsStringTagExcluded);
+                        quoteData.setText("" + quoteDetailsStringTagExcluded.replaceAll("&#8217;", "&#39;"));
 
                         JSONObject detailQuoteByObj = response.getJSONObject("excerpt");
                         String detailQuoteByString = detailQuoteByObj.getString("rendered");

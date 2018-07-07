@@ -18,5 +18,11 @@
 
         </item>
     </group>
+    <group android:id="@+id/group_drawermenu3"
+        android:checkableBehavior="single">
+        <item android:id="@+id/disclaimer"
+            android:title="Disclaimer">
 
+        </item>
+    </group>
 </menu>

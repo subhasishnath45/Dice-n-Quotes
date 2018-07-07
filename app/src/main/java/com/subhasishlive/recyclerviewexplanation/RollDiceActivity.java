@@ -90,9 +90,9 @@ public class RollDiceActivity extends AppCompatActivity {
             }
         });
 
-        String imageUri = "http://subhasishlive.com/wp-content/uploads/2018/07/ic_splashlogo.png";
-        ImageView logoDC = (ImageView) findViewById(R.id.image_logo);
-        Picasso.with(this).load(imageUri).into(logoDC);
+//        String imageUri = "http://subhasishlive.com/wp-content/uploads/2018/07/ic_splashlogo.png";
+//        ImageView logoDC = (ImageView) findViewById(R.id.image_logo);
+//        Picasso.with(this).load(imageUri).into(logoDC);
 
 
 

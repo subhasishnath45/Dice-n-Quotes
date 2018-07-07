@@ -166,7 +166,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         listItems.clear(); // first we're clearing the movie list....
 
 
-        JsonArrayRequest getRequest = new JsonArrayRequest(Request.Method.GET, Constants.base_url + "wp/v2/AllQuotes?_embed&per_page=100",new Response.Listener<JSONArray>() {
+        JsonArrayRequest getRequest = new JsonArrayRequest(Request.Method.GET, Constants.base_url + "wp/v2/AllQuotes?_embed&per_page=70",new Response.Listener<JSONArray>() {
 
             @Override
             public void onResponse(JSONArray response) {
@@ -184,7 +184,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     }
                     Random randomNumberGenerator = new Random();
                     // This gives a random integer between 2 (inclusive) and 88 (exclusive), one of 65,66,...,78,79
-                    int number1 = randomNumberGenerator.nextInt(23);// 0 to 22 any no will generate
+                    int number1 = randomNumberGenerator.nextInt(58);// 0 to 22 any no will generate
                     for(int i=number1;i< number1 + intValue;i++){
                         // instanciating JSONObject variable to pick a Index item(which is a JSON object) from the JSONArray.
                         //JSONObject movieObj =  moviesArray.getJSONObject(i);
@@ -253,6 +253,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 //do somthing
                 Uri uri = Uri.parse( "http://subhasishlive.com/blog" );
                 startActivity( new Intent( Intent.ACTION_VIEW, uri ) );
+                break;
+            }
+            case R.id.disclaimer: {
+                //do somthing
+                Intent i = new Intent(MainActivity.this, Disclaimer.class);
+                startActivity(i);
                 break;
             }
         }
