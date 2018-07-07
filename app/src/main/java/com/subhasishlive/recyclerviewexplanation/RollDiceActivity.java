@@ -59,7 +59,8 @@ public class RollDiceActivity extends AppCompatActivity {
         rollBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("DiceMe","Hello there");
+                isConnected(RollDiceActivity.this);
+                //Log.d("DiceMe","Hello there");
 
                 Random randomNumberGenerator = new Random();
                 int number1 = randomNumberGenerator.nextInt(6);
@@ -113,7 +114,7 @@ public class RollDiceActivity extends AppCompatActivity {
 
     public void showDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("Connect to wifi or quit")
+        builder.setMessage("Please Connect to Internet :)")
                 .setCancelable(false)
                 .setPositiveButton("Connect to WIFI", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {

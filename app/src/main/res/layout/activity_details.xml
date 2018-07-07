@@ -17,6 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:contentScrim="?attr/colorPrimary"
+            android:fontFamily="@font/abrilfatface_regular"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             android:id="@+id/collapsingToolbar">
 
@@ -70,8 +71,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/details_Quote_data"
+                android:fontFamily="@font/ibmplexserif_regular"
                 android:layout_marginBottom="20dp"
                 android:textSize="20sp"
+                android:textColor="#1565c0"
                 android:text=""/>
             <TextView
                 android:layout_width="match_parent"

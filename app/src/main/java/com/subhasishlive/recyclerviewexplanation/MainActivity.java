@@ -20,6 +20,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -54,6 +55,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private List<ListItem> listItems;// listitems are movies...
     private RequestQueue queue;// to use volleys
     private DrawerLayout mDrawerlayout;
+    private ProgressBar progressbar;
     public int intValue;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,12 +87,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         // we are adding our queue and passing our current context....
             queue = Volley.newRequestQueue(MainActivity.this);
 
-        // TODO: A FAB button would be added to call an alert dialog for search...
-
+        progressbar = (ProgressBar) findViewById(R.id.progressbar);
 
         // now we will set up our recyclerview and setup the adapter.
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView1);
-        recyclerView.setHasFixedSize(false);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setItemViewCacheSize(20);
+        recyclerView.setDrawingCacheEnabled(true);
+        recyclerView.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
         recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
 
         // creating an instance of Prefs class, calling parameterized constructor
@@ -175,6 +179,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     //JSONArray moviesArray = response.getJSONArray("Search");
                     // Now I'm iterating through the array by a for loop
                     // every index-element in that array contains a JSON object.
+                    if(response.length()>0){
+                        progressbar.setVisibility(ProgressBar.GONE);
+                    }
                     Random randomNumberGenerator = new Random();
                     // This gives a random integer between 2 (inclusive) and 88 (exclusive), one of 65,66,...,78,79
                     int number1 = randomNumberGenerator.nextInt(23);// 0 to 22 any no will generate

@@ -2,6 +2,7 @@ package com.subhasishlive.recyclerviewexplanation;
 
 import android.annotation.TargetApi;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Build;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -75,7 +76,6 @@ public class DetailsActivity extends AppCompatActivity {
         // setting CollapsingToolbar text
         //CollapsingToolbarLayout collapsingToolbarLayout = findViewById(R.id.collapsingToolbar);
         //collapsingToolbarLayout.setTitle("Collapsing Toolbar");
-
 
         // called two private methods
         setUpUI();
@@ -151,7 +151,6 @@ public class DetailsActivity extends AppCompatActivity {
                         String detailQuoteByString = detailQuoteByObj.getString("rendered");
                         String detailQuoteByStringTagExcluded = detailQuoteByString.replaceAll("\\<.*?\\>", "");
                         quoteBy.setText("By: " + detailQuoteByStringTagExcluded);
-
 //                        writers.setText("Writers: " + response.getString("Writer"));
 //                        plot.setText("Plot: " + response.getString("Plot"));
 //                        runtime.setText("Runtime: " + response.getString("Runtime"));

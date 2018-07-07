@@ -14,6 +14,12 @@
         android:layout_height="match_parent"
         tools:context="com.subhasishlive.recyclerviewexplanation.MainActivity">
         <include layout="@layout/app_bar"/>
+        <ProgressBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/progressbar"/>
         <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_marginTop="?attr/actionBarSize"
