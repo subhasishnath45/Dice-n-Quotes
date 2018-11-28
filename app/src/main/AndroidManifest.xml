@@ -19,15 +19,31 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".LoginActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            >
+
+        </activity>
+        <activity
+            android:name=".RegisterActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            >
+
+        </activity>
+        <activity
             android:name=".MainActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/app_name"
+            android:screenOrientation="portrait"
             android:launchMode="singleTask">
 
         </activity>
         <activity
             android:name=".DetailsActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
             android:launchMode="singleTask"></activity>
         <activity
             android:name=".SplashActivity"
@@ -39,15 +55,16 @@
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
         </activity>
-        <activity android:name=".RollDiceActivity">
+        <activity android:name=".RollDiceActivity"
+            android:screenOrientation="portrait">
 
         </activity>
-        <activity android:name=".Disclaimer">
+        <activity android:name=".Disclaimer"
+            android:screenOrientation="portrait">
 
         </activity>
     </application>

@@ -3,6 +3,7 @@ package com.subhasishlive.recyclerviewexplanation;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -27,6 +28,8 @@ import com.squareup.picasso.Target;
 import java.util.Random;
 
 public class RollDiceActivity extends AppCompatActivity {
+    private String mDisplayName;
+    private TextView mDisplayNameTextView;
     private Button rollBtn;
     private ImageView leftDice;
     private ImageView rightDice;
@@ -40,8 +43,9 @@ public class RollDiceActivity extends AppCompatActivity {
         setContentView(R.layout.activity_roll_dice);
 
         isConnected(this);
+        setupDisplayName();
 
-
+        mDisplayNameTextView = (TextView) findViewById(R.id.nameOfRoller);
         rollBtn = (Button) findViewById(R.id.rollBtn);
         leftDice = (ImageView) findViewById(R.id.image_leftdice);
         rightDice = (ImageView) findViewById(R.id.image_rightdice);
@@ -49,7 +53,7 @@ public class RollDiceActivity extends AppCompatActivity {
         //viewQuotesBtn = (Button) findViewById(R.id.viewQuotesBtn);
         myFab = (FloatingActionButton)  findViewById(R.id.fabgo);
         myFab.setVisibility(View.GONE);
-
+        returnName();
         final int[] diceArray = {R.drawable.dice1,
                 R.drawable.dice2,
                 R.drawable.dice3,
@@ -129,5 +133,20 @@ public class RollDiceActivity extends AppCompatActivity {
         AlertDialog alert = builder.create();
         alert.show();
     }
+
+    //TODO: retrive and display name from the saved shared preference in RegisterActivity
+    private void setupDisplayName(){
+        SharedPreferences prefs = getSharedPreferences(RegisterActivity.CHAT_PREFS,MODE_PRIVATE);
+        mDisplayName = prefs.getString(RegisterActivity.DISPLAY_NAME_KEY,null);
+        if(mDisplayName == null){
+            mDisplayName = "Anonymous";
+        }
+    }
+    private String returnName(){
+
+        mDisplayNameTextView.setText(mDisplayName);
+        return mDisplayNameTextView.toString();
+    }
+
 
 }
